@@ -14,6 +14,8 @@ import Footer from "./components/Footer/Footer";
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
 
+import {KEY} from "./localKey"
+
 function App() {
   return (
     <div>
