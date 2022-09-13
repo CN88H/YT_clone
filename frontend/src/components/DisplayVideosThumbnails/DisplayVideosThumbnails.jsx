@@ -2,15 +2,17 @@
 const DisplayVideosThumbnails = (props) => {
     return ( 
         <table>
-            <div>Thumbnail Area
-                <table>
+        <tbody>
+            <h1>Related Videos</h1>
+            {props.parentThumbnails.map((thumbnail) => {
+              return (
                 <tr>
-                    <th>First three videos</th>
-                    <th>Second Three videos</th>
-                    <th>Third Three videos</th>
+                  <td>{thumbnail.info}</td>
+                  <td>{thumbnail.thumbnails}</td>
                 </tr>
-                </table>
-            </div>
+              )
+            })}
+        </tbody>
         </table>
      );
 }

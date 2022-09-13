@@ -17,8 +17,23 @@ import PrivateRoute from "./utils/PrivateRoute";
 import {KEY} from "./localKey"
 import DisplayVideosThumbnails from "./components/DisplayVideosThumbnails/DisplayVideosThumbnails";
 import SearchForVideos from "./components/SearchForVideos/SearchForVideos";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 function App() {
+
+  const [thumbnails, setThumbnails] = useState([{info: 'breif discription', thumbnails: 'Thumbnail'}]);
+  
+  const key = {KEY}
+  
+  let url = `'https://www.googleapis.com/youtube/v3/search?q=&key=${key}=snippet&maxResults=10'`
+
+  // async function getVideos(){
+  //   const response = await axios.get(url);
+  //   console.log(response.data);
+  //   setVideos(response.data)
+  // }
+
   return (
     <div>
       <Navbar />
@@ -35,7 +50,8 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
       </Routes>
       <SearchForVideos />
-      <DisplayVideosThumbnails />
+
+      <DisplayVideosThumbnails parentThumbnails={thumbnails}/>
       <Footer />
     </div>
   );
