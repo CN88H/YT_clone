@@ -1,6 +1,6 @@
 const SearchForVideos = (props) => {
     return ( 
-        
+        <div>Search Area</div>
      );
 }
  

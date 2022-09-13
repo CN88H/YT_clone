@@ -15,6 +15,8 @@ import Footer from "./components/Footer/Footer";
 import PrivateRoute from "./utils/PrivateRoute";
 
 import {KEY} from "./localKey"
+import DisplayVideosThumbnails from "./components/DisplayVideosThumbnails/DisplayVideosThumbnails";
+import SearchForVideos from "./components/SearchForVideos/SearchForVideos";
 
 function App() {
   return (
@@ -32,6 +34,8 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>
+      <SearchForVideos />
+      <DisplayVideosThumbnails />
       <Footer />
     </div>
   );
