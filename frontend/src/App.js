@@ -19,20 +19,40 @@ import DisplayVideosThumbnails from "./components/DisplayVideosThumbnails/Displa
 import SearchForVideos from "./components/SearchForVideos/SearchForVideos";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import {DATA} from "./localData";
 
 function App() {
 
-  const [thumbnails, setThumbnails] = useState([{info: 'breif discription', thumbnails: 'Thumbnail'}]);
+  const [videos, setVideos] = useState(DATA.items);
   
-  const key = {KEY}
+  // const key = {KEY}
   
-  let url = `'https://www.googleapis.com/youtube/v3/search?q=&key=${key}=snippet&maxResults=10'`
+  // let url = `'https://www.googleapis.com/youtube/v3/search?q=&key==snippet&maxResults=10'`
+
+  // useEffect(() => {
+  //   getVideos();
+  // }, []);
 
   // async function getVideos(){
-  //   const response = await axios.get(url);
+  //   const response = await axios.get('https://jsonplaceholder.typicode.com/users');
   //   console.log(response.data);
   //   setVideos(response.data)
   // }
+
+  useEffect(() => {
+    // comment out fetchVideo when using local DATA.
+    // fetchVideos()
+  }, [])
+
+  const fetchVideos = async () => {
+    try {
+      let response = await axios.get('https://jsonplaceholder.typicode.com/users');
+      console.log(response.data)
+      setVideos(response.data)
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
 
   return (
     <div>
@@ -50,8 +70,14 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
       </Routes>
       <SearchForVideos />
+      {/* <div>
+          {videos && videos.map(video => {
+            return <li>{video.snippet.title}</li>
+          })}
+      </div> */}
+      
+      <DisplayVideosThumbnails videos={videos}/>
 
-      <DisplayVideosThumbnails parentThumbnails={thumbnails}/>
       <Footer />
     </div>
   );

@@ -1,19 +1,20 @@
 
 const DisplayVideosThumbnails = (props) => {
     return ( 
-        <table>
-        <tbody>
+        
+        <div>
             <h1>Related Videos</h1>
-            {props.parentThumbnails.map((thumbnail) => {
+            {props.videos.map((item) => {
               return (
-                <tr>
-                  <td>{thumbnail.info}</td>
-                  <td>{thumbnail.thumbnails}</td>
-                </tr>
+                <div>
+                  <p>{item.snippet.title}</p>
+                  
+                  <img src = {item.snippet.thumbnails.medium.url} width = {item.snippet.thumbnails.medium.width} height = {item.snippet.thumbnails.medium.height}/>
+                </div>
               )
             })}
-        </tbody>
-        </table>
+        </div>
+    
      );
 }
  
