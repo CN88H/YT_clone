@@ -10,6 +10,8 @@ const HomePage = () => {
   //TODO: Add an AddCars Page to add a car for a logged in user's garage
   const [user, token] = useAuth();
   const [cars, setCars] = useState([]);
+  console.log(user);
+  console.log(token);
 
   useEffect(() => {
     const fetchCars = async () => {
@@ -39,4 +41,8 @@ const HomePage = () => {
   );
 };
 
+<iframe id="ytplayer" type="text/html" width="640" height="360"
+  src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"
+  frameborder="0"></iframe>
+  
 export default HomePage;
